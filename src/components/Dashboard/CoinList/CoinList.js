@@ -4,6 +4,7 @@ import Paper from 'material-ui/Paper';
 const cstyle = {
     margin: 'auto',
     padding: 10,
+    textAlign: 'center',
 }
 
 
@@ -16,12 +17,12 @@ const style = {
 };
 
 const PaperExampleSimple = () => (
-    <div class="container" style={cstyle}>
-        <div class="header-list">
+    <div className="container" style={cstyle}>
+        <div className="header-list">
             
         </div>
-            <div class="row">
-                <div class="box">
+            <div className="row">
+                <div className="box">
                     <Paper style={style} zDepth={5} />
                     <Paper style={style} zDepth={5} />
                     <Paper style={style} zDepth={5} />
