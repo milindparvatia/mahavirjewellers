@@ -4,8 +4,9 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import CoinList from './components/Dashboard/CoinList/CoinList';
+import Coin from './container/Coin/Coin';
 //import ItemDetails from './container/IteamDetails/IteamDetails';
+
 import Layout from './components/Layout/Layout';
 class App extends Component {
   render() {
@@ -13,7 +14,7 @@ class App extends Component {
       <div>
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <Layout>
-            <CoinList />
+            <Coin />
           </Layout>
         </MuiThemeProvider>
       </div>

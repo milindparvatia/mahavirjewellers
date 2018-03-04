@@ -1,6 +1,6 @@
 import React from 'react';
-import ItemDetail from '../../components/ItemDetail/ItemDetail';
-import TC from '../../components/ItemDetail/T&C/T&C';
+import ItemDetail from './ItemDetail/IteamDetail';
+import TC from '../../components/Tc/Tc';
 import Aux from '../../hoc/Auxiliary';
 
 import Paper from 'material-ui/Paper';
@@ -19,6 +19,16 @@ const style = {
 };
 
 export default class iteamdetails extends React.Component {
+    state = {
+        ItemDetail:{
+            Type:"Chain",
+            Code:1,
+            Weight:3.5,
+            Metal:18,
+            Price:"22,222",
+        }
+    }
+
     render(){
         return(
             <Aux>
@@ -36,7 +46,7 @@ export default class iteamdetails extends React.Component {
                             <div className="row">
                                 <div className="col-12">
                                     <div className="box">
-                                        <ItemDetail />
+                                        <ItemDetail ItemDetail={this.state.ItemDetail}/>
                                     </div>
                                 </div>
                             </div>
