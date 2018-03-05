@@ -1,6 +1,8 @@
 import React from 'react';
 import Aux from '../../hoc/Auxiliary';
-import List from '../../components/Dashboard/List/List';
+import List from '../../components/List/List';
+import Axios from 'axios';
+import firebase from 'firebase';
 
 const cstyle = {
     margin: 'auto',
@@ -10,80 +12,49 @@ const cstyle = {
 
 export default class Coin extends React.Component {
     state = {
-        heading:[
-            {head:'Chain'}
-        ],
-        Lists : [
-            {   
-                id: '1',
-                img: 'https://dummyimage.com/200x200/000/fff.jpg&text=hey',
-                title: 'Breakfast',
-                author: 'jill111',
-              },
-              { 
-                id: '2',
-                img: 'https://dummyimage.com/200x200/001/fff.jpg&text=hey',
-                title: 'Tasty burger',
-                author: 'pashminu',
-              },
-              {
-                id: '3',
-                img: 'https://dummyimage.com/200x200/002/fff.jpg&text=hey',
-                title: 'Camera',
-                author: 'Danson67',
-              },
-              {
-                id: '4',
-                img: 'https://dummyimage.com/200x200/003/fff.jpg&text=hey',
-                title: 'Morning',
-                author: 'fancycrave1',
-              },
-              { 
-                id: '5',
-                img: 'https://dummyimage.com/200x200/004/fff.jpg&text=hey',
-                title: 'Hats',
-                author: 'Hans',
-              },
-              { 
-                id: '6',
-                img: 'https://dummyimage.com/200x200/005/fff.jpg&text=hey',
-                title: 'Honey',
-                author: 'fancycravel',
-              },
-              {
-                id: '7',
-                img: 'https://dummyimage.com/200x200/006/fff.jpg&text=hey',
-                title: 'Vegetables',
-                author: 'jill111',
-              },
-              {
-                id: '8',
-                img: 'https://dummyimage.com/200x200/007/fff.jpg&text=hey',
-                title: 'Water plant',
-                author: 'BkrmadtyaKarki',
-              },
-          ]
+        head:'Chain',
+        Lists : []
     }
 
-    
+    componentWillMount (){
+        // Points to the root reference
+        const storageRef = firebase.storage().ref();
+
+        // Points to 'images'
+        const imagesRef = storageRef.child('test');
+
+        var fileName = 'test.PNG';
+        var spaceRef = imagesRef.child(fileName);
+
+        Axios.get(spaceRef)
+        .then(response => {
+            this.setState({Lists:response.data});
+            console.log(response);
+        });
+    }
+
+    passingid = () => {
+
+    }
 
     render(){
+
+        const Lists = this.state.Lists.map((list, index) => {
+                        return <List
+                        key={list.id}
+                        //onClick={console.log('1')}
+                        imageUri={list.img}
+                        />
+        });
         return(
             <Aux>
                 <div style={cstyle}>
                     <div className="header-list">
-                       <h1>{this.state.heading.values}</h1>
+                        <h1>{this.state.head}</h1>
                     </div>
                         <div className="row">
                             <div className="box">
-                                {this.state.Lists.map((list, index) => {
-                                    return <List
-                                    
-                                    // title={list.title}
-                                    // author={list.author}
-                                    imageUri={list.img}
-                                    />
-                                })}
+                                {Lists}
                             </div>
                         </div>
                 </div>

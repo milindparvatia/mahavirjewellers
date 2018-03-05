@@ -2,6 +2,7 @@ import React from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router-dom';
 
 export default class DrawerUndockedExample extends React.Component {
 
@@ -27,8 +28,15 @@ export default class DrawerUndockedExample extends React.Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onClick={this.handleClose}>Menu Item</MenuItem>
-          <MenuItem onClick={this.handleClose}>Menu Item 2</MenuItem>
+          <Link to="/">
+              <MenuItem  onClick={this.handleClose}>Home</MenuItem>
+          </Link>
+          <Link to="/Coin">
+              <MenuItem  onClick={this.handleClose}>Coin</MenuItem>
+          </Link>
+          <Link to="/ItemDetails">
+              <MenuItem  onClick={this.handleClose}>Coin Details</MenuItem>
+          </Link>
         </Drawer>
       </div>
     );

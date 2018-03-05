@@ -14,12 +14,12 @@ const tc = () => (
     <br/>
     <tr>
         <th><i class="material-icons">info</i></th>
-        <a href="#"><th>Info on WithDrawal</th></a>
+        <a href=""><th>Info on WithDrawal</th></a>
     </tr>
     
     <tr>
         <th><i class="material-icons">insert_drive_file</i></th>
-        <a href="#"><th>Tearm and conditions</th></a>
+        <a href=""><th>Tearm and conditions</th></a>
     </tr>
     </tbody>
   </table>
