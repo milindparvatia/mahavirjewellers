@@ -9,6 +9,7 @@ import { Route,Switch } from 'react-router-dom';
 import Coin from './container/Coin/Coin';
 import ItemDetails from './container/IteamDetails/IteamDetails';
 import Dashboard from './components/Dashboard/Dashboard';
+import CheckOut from './container/CheckOut/CheckOut';
 import Layout from './components/Layout/Layout';
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <Layout>
             <Switch>
+              <Route path="/CheckOut" exact component={CheckOut} />
               <Route path="/Coin" exact component={Coin} />
               <Route path="/ItemDetails" exact component={ItemDetails} />
               <Route path="/" exact component={Dashboard} />

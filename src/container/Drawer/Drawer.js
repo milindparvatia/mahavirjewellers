@@ -37,6 +37,9 @@ export default class DrawerUndockedExample extends React.Component {
           <Link to="/ItemDetails">
               <MenuItem  onClick={this.handleClose}>Coin Details</MenuItem>
           </Link>
+          <Link to="/CheckOut">
+              <MenuItem  onClick={this.handleClose}>CheckOut</MenuItem>
+          </Link>
         </Drawer>
       </div>
     );
