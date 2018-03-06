@@ -19,6 +19,7 @@ class App extends Component {
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <Layout>
             <Switch>
+              
               <Route path="/CheckOut" exact component={CheckOut} />
               <Route path="/Coin" exact component={Coin} />
               <Route path="/ItemDetails" exact component={ItemDetails} />
